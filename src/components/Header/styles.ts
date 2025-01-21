@@ -1,3 +1,4 @@
+import AntDesign from '@expo/vector-icons/AntDesign';
 import styled from "styled-components/native";
 
 export const Container = styled.View`
@@ -9,7 +10,15 @@ export const Container = styled.View`
 `
 
 export const Logo = styled.Image`
-    width: 46;
-    height: 55;
-
+    width: 46px;
+    height: 55px;
 `
+
+export const BackButtton = styled.TouchableOpacity`
+    flex: 1;
+`
+
+export const BackIcon = styled(AntDesign).attrs(({theme}) => ({
+    size: 32,
+    color: theme.COLORS.WHITE
+}))``
