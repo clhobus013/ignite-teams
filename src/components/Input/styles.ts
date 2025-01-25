@@ -10,8 +10,8 @@ export const Container = styled(TextInput)`
     font-size: ${({theme})=> theme.FONT_SIZE.MD}px;
     font-family: ${({theme})=> theme.FONT_FAMILY.REGULAR};
 
-    min-height: 56;
-    max-height: 56;
+    min-height: 56px;
+    max-height: 56px;
 
     border-radius: 6px;
     padding: 16px;
