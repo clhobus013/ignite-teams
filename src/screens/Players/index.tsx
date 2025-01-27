@@ -5,6 +5,7 @@ import { Header } from "@components/Header";
 import { Button } from "@components/Button";
 import { Highlight } from "@components/Highlight";
 import { ButtonIcon } from "@components/ButtonIcon";
+import { Filter } from "@components/Filter";
 
 export function Players() {
     return(
@@ -24,6 +25,7 @@ export function Players() {
                 <ButtonIcon icon="add" type="PRIMARY"/>
             </Form>
 
+            <Filter title="time a"/>
 
             <Button
                 title="Remover turma"
