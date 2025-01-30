@@ -1,5 +1,5 @@
-import AntDesign from '@expo/vector-icons/AntDesign';
 import styled from "styled-components/native";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export const Container = styled.View`
     width: 100%;

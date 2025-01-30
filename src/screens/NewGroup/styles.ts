@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 export const Container = styled.View`
     flex: 1;
