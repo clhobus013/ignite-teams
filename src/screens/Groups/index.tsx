@@ -19,7 +19,11 @@ export function Groups() {
 
   function handleNewGroup() {
     navigation.navigate('new')
-  } 
+  }
+
+  function handleOpenGroup(group: string){
+    navigation.navigate('players', { group });
+  }
 
   async function fetchGroups() {
     try {
@@ -48,6 +52,7 @@ export function Groups() {
         renderItem={({item})=> (
           <GroupCard
             title={item}
+            onPress={() => handleOpenGroup(item)}
           />
         )}
         contentContainerStyle={groups.length === 0 && {flex: 1}}
