@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Alert, FlatList, TextInput } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
 import { Container, Form, HeaderList, NumberOfPlayers } from "./styles";
+
+import { AppError } from "@utils/AppError";
+
+import { playerAddByGroup } from "@storage/player/playerAddByGroup";
+import { PlayerStorageDTO } from "@storage/player/PlayerStorageDTO";
+import { playerRemoveByGroup } from "@storage/player/playerRemoveByGroup";
+import { playersGetByGroupAndTeam } from "@storage/player/playersGetByGroupAndTeam";
 
 import { Input } from "@components/Input";
 import { Filter } from "@components/Filter";
@@ -11,11 +19,6 @@ import { Highlight } from "@components/Highlight";
 import { ButtonIcon } from "@components/ButtonIcon";
 import { PlayerCard } from "@components/PlayerCard";
 import { ListEmpty } from "@components/ListEmpty";
-import { useRoute } from "@react-navigation/native";
-import { AppError } from "@utils/AppError";
-import { playerAddByGroup } from "@storage/player/playerAddByGroup";
-import { playersGetByGroupAndTeam } from "@storage/player/playersGetByGroupAndTeam";
-import { PlayerStorageDTO } from "@storage/player/PlayerStorageDTO";
 
 type RouteParams = {
     group: string   
@@ -44,7 +47,7 @@ export function Players() {
         try {
 
             await playerAddByGroup(newPlayer, group);
-            fetchPlayersByTeam();
+            await fetchPlayersByTeam();
 
             newPlayerNameInputRef.current?.blur();
             setNewPlayerName('');
@@ -56,6 +59,16 @@ export function Players() {
                 console.log(error);
                 Alert.alert('Nova Pessoa', 'Não foi possível adicionar');
             }
+        }
+    }
+
+    async function handleRemovePlayer(playerName: string) {
+        try {
+            await playerRemoveByGroup(playerName, group);
+            await fetchPlayersByTeam()
+        } catch (error) {
+            console.log(error)
+            Alert.alert('Remover pessoa', 'Não foi possível remover a pessoa selecionada');
         }
     }
 
@@ -118,7 +131,7 @@ export function Players() {
                 renderItem={({item}) => (
                     <PlayerCard 
                         name={item.name} 
-                        onRemove={() => {}}
+                        onRemove={() => handleRemovePlayer(item.name)}
                     />
                 )}
                 ListEmptyComponent={()=> (
