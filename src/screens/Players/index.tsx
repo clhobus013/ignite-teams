@@ -76,8 +76,8 @@ export function Players() {
 
     function handleRemoveGroup(){
         Alert.alert(
-            'Remover grupo',
-            'Deseja remover o grupo ?',
+            'Remover turma',
+            'Deseja remover a turma ?',
             [
                 {text: 'Não', style: 'cancel'},
                 {text: 'Sim', onPress: removeGroup}
@@ -91,7 +91,7 @@ export function Players() {
             navigation.navigate('groups');
         } catch (error) {
             console.log(error)
-            Alert.alert('Remover grupo', 'Não foi possível remover o grupo');
+            Alert.alert('Remover turma', 'Não foi possível remover a turma');
         }
     }
 

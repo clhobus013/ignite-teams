@@ -31,6 +31,7 @@ export function Groups() {
       setGroups(data);
     } catch (error) {
       console.log(error);
+      Alert.alert('Turmas', 'Não foi possível carregar as turmas');
     }
   }
 

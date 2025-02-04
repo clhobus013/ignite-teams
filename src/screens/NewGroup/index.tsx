@@ -21,7 +21,7 @@ export function NewGroup() {
     async function handleNew() {
         try {
             if(group.trim().length === 0) {
-                return Alert.alert('Novo grupo', 'Informe o nome da turma.');
+                return Alert.alert('Nova turma', 'Informe o nome da turma.');
             }
 
             await groupCreate(group);
@@ -29,9 +29,9 @@ export function NewGroup() {
 
         } catch (error) {
             if(error instanceof AppError) {
-                Alert.alert('Novo grupo', error.message);
+                Alert.alert('Nova turma', error.message);
             } else {
-                Alert.alert('Novo grupo', 'Não foi possível cadastrar um novo grupo.');
+                Alert.alert('Nova turma', 'Não foi possível cadastrar uma nova turma.');
                 console.log(error);
             }
         }
@@ -44,7 +44,7 @@ export function NewGroup() {
             <Content>
                 <Icon name='users'/>
                 <Highlight
-                    title="Nova Turma" 
+                    title="Nova turma" 
                     subtitle="crie uma turma para adicionar as pessoas" 
                 />
 
